@@ -1,14 +1,18 @@
+setResolution(640, 480);
 hush();
 voronoi(() => cc[getKnob(1, 1)] * 10, 1)
   .mult(
     osc(7, 0.1, () => Math.cos(time) * 3)
       .saturate(2)
-      .kaleid(100)
+      .kaleid(() => cc[getKnob(1, 2)] * 100)
   )
-  .modulate(o0, 0.4)
-  .add(o0, 0.8)
+  .modulate(o0, () => cc[getKnob(1, 3)])
+  .add(o0, () => cc[getKnob(1, 4)])
   .scrollY(-0.01)
   .scale(0.98)
-  .modulate(voronoi(8, 1), 0.016)
-  .luma(0.2)
+  .modulate(
+    voronoi(() => cc[getKnob(1, 5)] * 10, 1),
+    0.016
+  )
+  .luma(() => cc[getKnob(1, 6)])
   .out(o0);
