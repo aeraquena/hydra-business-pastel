@@ -1,0 +1,18 @@
+//https://hydra.ojack.xyz/?code=JTJGJTJGJTIwbGljZW5zZWQlMjB3aXRoJTIwQ0MlMjBCWS1OQy1TQSUyMDQuMCUyMGh0dHBzJTNBJTJGJTJGY3JlYXRpdmVjb21tb25zLm9yZyUyRmxpY2Vuc2VzJTJGYnktbmMtc2ElMkY0LjAlMkYlMEElMkYlMkYlMjBieSUyMFJvZHJpZ28lMjBWZWxhc2NvJTBBJTJGJTJGJTIwaHR0cHMlM0ElMkYlMkZ5ZWN0by5naXRodWIuaW8lMkYlMEElMEFvc2MoMTglMkMlMjAwLjElMkMlMjAwKSUwQSUwOS5jb2xvcigyJTJDJTIwMC4xJTJDJTIwMiklMEElMDkubXVsdChvc2MoMjAlMkMlMjAwLjAxJTJDJTIwMCkpJTBBJTA5LnJlcGVhdCgyJTJDJTIwMjApJTBBJTA5LnJvdGF0ZSgwLjUpJTBBJTA5Lm1vZHVsYXRlKG8xKSUwQSUwOS5zY2FsZSgxJTJDJTIwKCklMjAlM0QlM0UlMjAoYS5mZnQlNUIwJTVEJTIwKiUyMDAuOSUyMCUyQiUyMDIpKSUwQSUwOS5kaWZmKG8xKSUwQSUwOS5sdW1hKDAuNiklMEElMDkub3V0KG8wKSUwQW9zYygyMCUyQyUyMDAuMiUyQyUyMDApJTBBJTA5LmNvbG9yKDIlMkMlMjAwLjclMkMlMjAwLjEpJTBBJTA5Lm11bHQob3NjKDQwKSklMEElMDkubW9kdWxhdGVSb3RhdGUobzAlMkMlMjAwLjIpJTBBJTA5LnJvdGF0ZSgwLjIpJTBBJTA5Lmx1bWEoMC44KSUwQSUwOS5vdXQobzEp
+osc(18, 0.1, 0)
+  .color(2, 0.1, 2)
+  .mult(osc(20, 0.01, 0))
+  .repeat(2, 20)
+  .rotate(0.5)
+  .modulate(o1)
+  .scale(1, () => a.fft[0] * 0.9 + 2)
+  .diff(o1)
+  .luma(0.6)
+  .out(o0);
+osc(20, 0.2, 0)
+  .color(2, 0.7, 0.1)
+  .mult(osc(40))
+  .modulateRotate(o0, 0.2)
+  .rotate(0.2)
+  .luma(0.8)
+  .out(o1);
