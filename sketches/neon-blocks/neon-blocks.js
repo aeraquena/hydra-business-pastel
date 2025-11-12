@@ -1,7 +1,4 @@
-// Ascending neon blocks
-// https://hydra.ojack.xyz/?code=b3NjKCgpJTIwJTNEJTNFJTIwY2MlNUJnZXRLbm9iKDElMkMzKSU1RCUyMColMjAxMCUyQyUyMCgpJTIwJTNEJTNFJTIwY2MlNUJnZXRLbm9iKDElMkM0KSU1RCUyQyUyMDMwMCklMEElMDkuY29sb3IoMC45JTJDJTIwMC43JTJDJTIwMC44KSUwQSUwOS5kaWZmKG9zYyg0NSUyQyUyMDAuMyUyQyUyMDEwMCklMEElMDklMDkuY29sb3IoMC45JTJDJTIwMC45JTJDJTIwMC45KSUwQSUwOSUwOS5yb3RhdGUoMC4xOCklMEElMDklMDkucGl4ZWxhdGUoMTIpKSUwQSUwOS5zY3JvbGxYKCgpJTIwJTNEJTNFJTIwY2MlNUJnZXRLbm9iKDElMkMxKSU1RCUyMColMjAxMCklMEElMDkubHVtYSgoKSUyMCUzRCUzRSUyMGNjJTVCZ2V0S25vYigxJTJDNSklNUQpJTBBJTA5Lm1vZHVsYXRlKG9zYygoKSUyMCUzRCUzRSUyMGNjJTVCZ2V0S25vYigxJTJDMiklNUQlMkMlMjAtMC45JTJDJTIwMDApKSUwQSUwOS5vdXQoKSUzQiUwQSUwQXNwZWVkJTIwJTNEJTIwMSUzQg%3D%3D
-
-speed = 1;
+speed = 0.75;
 setResolution(640, 480);
 
 osc(
@@ -10,8 +7,18 @@ osc(
   300
 )
   .color(0.9, 0.7, 0.8)
-  .diff(osc(45, 0.3, 100).color(0.9, 0.9, 0.9).rotate(0.18).pixelate(12))
-  .scrollX(() => cc[getKnob(1, 3)] * 10)
-  .luma(() => cc[getKnob(1, 4)])
-  .modulate(osc(() => cc[getKnob(1, 5)], -0.9, 0))
+  .diff(
+    osc(() => cc[getKnob(1, 3)] * 45, 0.3, 100)
+      .color(0.9, 0.9, 0.9)
+      .rotate(0.18)
+      .pixelate(() => cc[getKnob(1, 4)] * 20)
+  )
+  .scrollX(() => cc[getKnob(1, 5)])
+  .luma(() => cc[getSlider(1)])
+  .modulate(
+    osc(
+      () => cc[getKnob(1, 6)] * 0.1,
+      () => cc[getKnob(1, 7)]
+    )
+  )
   .out();

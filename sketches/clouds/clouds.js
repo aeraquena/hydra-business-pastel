@@ -9,7 +9,7 @@ shape([4, 5, 6].fast(0.1).smooth(1), 0.000001, [0.2, 0.7].smooth(1))
       [0.2, 0.7, 0.5, 0.3].smooth(1)
     )
       .color(0.6, 0.2, 0.5)
-      .scrollY(() => cc[getKnob(1, 2) * 0.1])
+      .scrollY(() => cc[getKnob(1, 1) * 0.1])
       .scrollX(() => Math.sin(time * 0.33))
   )
   .add(
@@ -26,14 +26,15 @@ shape([4, 5, 6].fast(0.1).smooth(1), 0.000001, [0.2, 0.7].smooth(1))
         [1.05, 0.9].fast(0.3).smooth(1),
         [1.05, 0.9, 1].fast(0.29).smooth(1)
       ),
-    0.85
+    () => cc[getKnob(1, 2)]
   )
   .modulate(
     voronoi(
-      () => cc[getKnob(1, 1)] * 10,
+      () => cc[getKnob(1, 3)] * 10,
       2,
-      () => cc[getKnob(1, 2)] * 5
-    )
+      () => cc[getKnob(1, 4)] * 5
+    ),
+    () => cc[getKnob(1, 5)]
   )
-  .luma(() => cc[getKnob(1, 3)])
+  .luma(() => cc[getSlider(1)])
   .out();
