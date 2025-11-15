@@ -1,4 +1,5 @@
 setResolution(640, 480);
+hush();
 shape([4, 5, 6].fast(0.1).smooth(1), 0.000001, [0.2, 0.7].smooth(1))
   .color(0.2, 0.4, 0.3)
   .scrollX(() => Math.sin(time * 0.27))
@@ -26,15 +27,10 @@ shape([4, 5, 6].fast(0.1).smooth(1), 0.000001, [0.2, 0.7].smooth(1))
         [1.05, 0.9].fast(0.3).smooth(1),
         [1.05, 0.9, 1].fast(0.29).smooth(1)
       ),
-    () => cc[getKnob(1, 2)]
+    () => cc[getKnob(1, 2)] * 0.75
   )
-  .modulate(
-    voronoi(
-      () => cc[getKnob(1, 3)] * 10,
-      2,
-      () => cc[getKnob(1, 4)] * 5
-    ),
-    () => cc[getKnob(1, 5)]
+  .luma(
+    () => cc[getSlider(1)],
+    () => cc[getSlider(2)]
   )
-  .luma(() => cc[getSlider(1)])
   .out();

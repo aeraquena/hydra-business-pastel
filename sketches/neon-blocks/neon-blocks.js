@@ -14,7 +14,10 @@ osc(
       .pixelate(() => cc[getKnob(1, 4)] * 20)
   )
   .scrollX(() => cc[getKnob(1, 5)])
-  .luma(() => cc[getSlider(1)])
+  .luma(
+    () => cc[getSlider(1)],
+    () => cc[getSlider(2)]
+  )
   .modulate(
     osc(
       () => cc[getKnob(1, 6)] * 0.1,

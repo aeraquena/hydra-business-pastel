@@ -14,5 +14,8 @@ voronoi(() => cc[getKnob(1, 1)] * 10, 1)
     voronoi(() => cc[getKnob(1, 5)] * 10, 1),
     () => cc[getKnob(1, 6)] * 0.05
   )
-  .luma(() => cc[getSlider(1)])
+  .luma(
+    () => cc[getSlider(1)],
+    () => cc[getSlider(2)]
+  )
   .out(o0);
