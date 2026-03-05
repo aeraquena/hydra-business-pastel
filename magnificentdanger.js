@@ -11,7 +11,7 @@ src(o0).modulate(noise(()=>cc[getKnob(1,1)]*4),()=>cc[getKnob(1,2)]*0.01,).blend
 osc(20,-0.5,()=>cc[getKnob(1,1)]).kaleid(99).repeat(2,2).saturate(()=>cc[getKnob(1,2)]*10).luma(()=>cc[getSlider(1)],()=>cc[getSlider(2)],).scale(()=>cc[getKnob(1,4)]*5).modulate(o0,()=>cc[getKnob(1,5)]).out(o0);
 
 // 3
-// rotating blob
+// rotating blo
 
 noise(()=>cc[getKnob(1,1)]*5,0.1,()=>cc[getKnob(1,2)]*7,).rotate(1,-1,-2).mask(shape(20)).colorama(()=>cc[getKnob(1,3)]).modulateScale(o0).modulateScale(o0).blend(o0).blend(o0).blend(o0).blend(o0).luma(()=>cc[getSlider(1)],()=>cc[getSlider(2)],).out(o0);
 
@@ -38,7 +38,7 @@ speed=1;osc(()=>cc[getKnob(1,1)]*200).color(0.5,0.1,0.8).rotate(0.11,0.1).modula
 // 8
 // clouds
 
-speed=1.5;shape([4,5,6].fast(0.1).smooth(1),0.000001,[0.2,0.7].smooth(1)).color(0.2,0.4,0.3).scrollX(()=>Math.sin(time*0.27)).add(shape([4,5,6].fast(0.1).smooth(1),0.000001,[0.2,0.7,0.5,0.3].smooth(1),).color(0.6,0.2,0.5).scrollY(()=>cc[getKnob(1,1)*0.1]).scrollX(()=>Math.sin(time*0.33)),).add(shape([4,5,6].fast(0.1).smooth(1),0.000001,[0.2,0.7,0.3].smooth(1)).color(0.2,0.4,0.6).scrollY(-0.35).scrollX(()=>Math.sin(time*0.41)*-1),).add(src(o0).shift(0.001,0.01,0.001).scrollX([0.05,-0.05].fast(0.1).smooth(1)).scale([1.05,0.9].fast(0.3).smooth(1),[1.05,0.9,1].fast(0.29).smooth(1),),()=>cc[getKnob(1,2)]*0.75,).luma(()=>cc[getSlider(1)],()=>cc[getSlider(2)],).scale(()=>cc[getKnob(1,3)]).out();
+hush();speed=1.5;shape([4,5,6].fast(0.1).smooth(1),0.000001,[0.2,0.7].smooth(1)).color(0.2,0.4,0.3).scrollX(()=>Math.sin(time*0.27)).add(shape([4,5,6].fast(0.1).smooth(1),0.000001,[0.2,0.7,0.5,0.3].smooth(1),).color(0.6,0.2,0.5).scrollY(()=>cc[getKnob(1,1)*0.1]).scrollX(()=>Math.sin(time*0.33)),).add(shape([4,5,6].fast(0.1).smooth(1),0.000001,[0.2,0.7,0.3].smooth(1)).color(0.2,0.4,0.6).scrollY(-0.35).scrollX(()=>Math.sin(time*0.41)*-1),).add(src(o0).shift(0.001,0.01,0.001).scrollX([0.05,-0.05].fast(0.1).smooth(1)).scale([1.05,0.9].fast(0.3).smooth(1),[1.05,0.9,1].fast(0.29).smooth(1),),()=>cc[getKnob(1,2)]*0.75,).luma(()=>cc[getSlider(1)],()=>cc[getSlider(2)],).scale(()=>cc[getKnob(1,3)]).out();
 
 // 9
 // glitch river
