@@ -81,29 +81,29 @@ osc(5, 0.9, 0.001)
 // 5
 // radial bw
 
-shape(() => cc[getKnob(1,1)] * 20,0.1,0.01)
-.scale(() => Math.sin(time)*3)
-.repeat(() => Math.sin(time)*10)
-.modulateRotate(o0)
-.scale(() => Math.sin(time)*2)
-.modulate(noise(3,0))
-.rotate(0.1, 0.9)
-.out(o0)
-
+shape(() => cc[getKnob(1, 1)] * 20, 0.1, 0.01)
+  .scale(() => Math.sin(time) * 3)
+  .repeat(() => Math.sin(time) * 10)
+  .modulateRotate(o0)
+  .scale(() => Math.sin(time) * 2)
+  .modulate(noise(3, 0))
+  .rotate(0.1, 0.9)
+  .out(o0);
 src(o0)
-.modulate(osc(() => cc[getKnob(1,2)] * 300,1,0))
-.out(o1)
-
+  .modulate(osc(() => cc[getKnob(1, 2)] * 300, 1, 0))
+  .out(o1);
 src(o1)
-.modulateKaleid(voronoi(() => Math.sin(time)*3,0.1,0.01),() => Math.sin(time)*4)
-.scale(() => Math.sin(time)*3)
-.luma(
+  .modulateKaleid(
+    voronoi(() => Math.sin(time) * 3, 0.1, 0.01),
+    () => Math.sin(time) * 4,
+  )
+  .scale(() => Math.sin(time) * 3)
+  .luma(
     () => cc[getSlider(1)],
     () => cc[getSlider(2)],
   )
-.out(o2)
-
-render(o2)
+  .out(o2);
+render(o2);
 
 // 6
 // diagonal line glitch
@@ -140,7 +140,6 @@ render(o0);
 // acid bus seat
 
 speed = 1;
-
 osc(() => cc[getKnob(1, 1)] * 200)
   .color(0.5, 0.1, 0.8)
   .rotate(0.11, 0.1)
@@ -231,13 +230,13 @@ voronoi(() => cc[getKnob(1, 1)] * 10, 1)
   )
   .out(o0);
 
-  // 10
+// 10
 // glowing portal
 
 osc(
   () => cc[getKnob(1, 1)] * 10,
   0,
-  () => cc[getKnob(1, 3)]
+  () => cc[getKnob(1, 3)],
 )
   .kaleid()
   .mask(shape(() => cc[getKnob(1, 4)] * 5, 0.3, 1))
@@ -248,34 +247,9 @@ osc(
   .add(shape(4, 0.2, 1).color(0.3, 1, 1, 0.5))
   .rotate(() => time)
   .scale(() => cc[getKnob(1, 5)])
-.modulate(o0)
-.luma(
+  .modulate(o0)
+  .luma(
     () => cc[getSlider(1)],
     () => cc[getSlider(2)],
   )
   .out();
-
-// *******************************************************************/
-// Mahalia
-/*
-shape(() => cc[getKnob(1,1)] * 20,0.1,0.01)
-.scale(() => Math.sin(time)*3)
-.repeat(() => Math.sin(time)*10)
-.modulateRotate(o0)
-.scale(() => Math.sin(time)*2)
-.modulate(noise(3,0))
-.rotate(0.1, 0.9)
-.out(o0)
-
-src(o0)
-.modulate(osc(300,1,0))
-.out(o1)
-
-src(o1)
-.modulateKaleid(voronoi(() => Math.sin(time)*3,0.1,0.01),() => Math.sin(time)*4)
-.scale(() => Math.sin(time)*3)
-.out(o2)
-
-render(o2)
-
-//speed = .8
